@@ -8,7 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 const POINTS = [
   {
     icon: Wrench,
-    title: 'Ex-Force Motors Mechanics',
+    title: 'Ex-Force Motors Mechanics (Nadeem Ahmad)',
     desc: 'Our workshop team trained directly on Force Motors vehicles, so every repair is fitment-correct the first time.'
   },
   {
