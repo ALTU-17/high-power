@@ -153,7 +153,8 @@ export default function Hero() {
             href={`https://wa.me/${shop.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-hazard text-asphalt font-display font-semibold px-6 py-3 rounded-sm hover:brightness-110 transition"
+            className="flex items-center gap-2 bg-hazard text-asphalt font-display font-semibold px-6 py-3
+             rounded-sm hover:brightness-110 transition"
           >
             <MessageCircle size={18} strokeWidth={2.5} />
             WhatsApp Us
@@ -172,7 +173,8 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href={`tel:+${shop.phone}`}
-            className="flex items-center gap-2 border border-chrome/40 text-paper font-display font-semibold px-6 py-3 rounded-sm hover:border-hazard hover:text-hazard transition"
+            className="flex items-center gap-2 border border-chrome/40 text-paper font-display font-semibold px-6 py-3 rounded-sm 
+            hover:border-hazard hover:text-hazard transition"
           >
             <Phone size={18} strokeWidth={2.5} />
             Call {shop.phoneDisplay}
@@ -185,11 +187,11 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={showContent ? { opacity: 1 } : { opacity: 0 }}
         transition={{ delay: 4.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-chrome/60 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-chrome/60 z-10"
       >
         <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Scroll</span>
         <motion.span animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.6 }}>
-          <ChevronDown size={18} />
+          <ChevronDown size={16} />
         </motion.span>
       </motion.div>
     </section>
