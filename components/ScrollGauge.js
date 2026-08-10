@@ -24,28 +24,39 @@ export default function ScrollGauge() {
 
   return (
     <div
-      className={`fixed bottom-5 right-5 z-40 hidden md:flex flex-col items-center transition-opacity duration-300 ${
+      className={`fixed bottom-5 left-5 z-40 flex flex-col items-center transition-opacity duration-300 ${
         visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       aria-hidden="true"
     >
-      <div className="relative w-20 h-20 rounded-full bg-panel border border-chrome/25 shadow-lg shadow-black/40 flex items-center justify-center">
+      {/* Mobile: Chhota gauge | Desktop: Bada gauge */}
+      <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-panel border border-chrome/25 shadow-lg shadow-black/40 flex items-center justify-center">
         {TICKS.map((_, i) => {
           const a = -120 + (i * 240) / (TICKS.length - 1);
           return (
             <span
               key={i}
               className="absolute w-[2px] h-2 bg-chrome/40 top-1 left-1/2 -ml-px"
-              style={{ transform: `rotate(${a}deg)`, transformOrigin: '1px 36px' }}
+              style={{ 
+                transform: `rotate(${a}deg)`, 
+                transformOrigin: window.innerWidth < 768 ? '1px 28px' : '1px 36px'
+              }}
             />
           );
         })}
         <motion.div
-          className="absolute w-[3px] h-7 bg-hazard rounded-full top-2"
-          style={{ rotate, left: '50%', marginLeft: '-1.5px', transformOrigin: '50% 32px' }}
+          className="absolute w-[2px] md:w-[3px] h-6 md:h-7 bg-hazard rounded-full top-2"
+          style={{ 
+            rotate, 
+            left: '50%', 
+            marginLeft: '-1px', 
+            transformOrigin: window.innerWidth < 768 ? '50% 25px' : '50% 32px'
+          }}
         />
-        <div className="absolute w-2.5 h-2.5 rounded-full bg-hazard" />
-        <span className="absolute bottom-1.5 font-mono text-[9px] text-chrome/70">{percent}%</span>
+        <div className="absolute w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-hazard" />
+        <span className="absolute bottom-1.5 font-mono text-[8px] md:text-[9px] text-chrome/70">
+          {percent}%
+        </span>
       </div>
     </div>
   );

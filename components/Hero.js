@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from 'react';
 import { MessageCircle, Phone, ChevronDown } from 'lucide-react';
 import { shop } from '@/lib/data';
 
+const WORD_0 = 'New';
 const WORD_1 = 'HIGH';
 const WORD_2 = 'POWER';
 
@@ -55,7 +56,7 @@ export default function Hero() {
     // Cinematic delay - show content after 3 seconds
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 3000);
+    }, 2000);
 
     return () => {
       window.removeEventListener('resize', checkMobile);
@@ -125,10 +126,17 @@ export default function Hero() {
           </span>
         </motion.div>
 
+        <h1 className="font-display font-bold uppercase leading-[0.92] text-[6vw] sm:text-[9vw] 
+        lg:text-[2.4vw]">
+         <AnimatedWord word={WORD_0} startIndex={0} colorClass="text-blue" isVisible={showContent} />
+          <br />
+        </h1>
+
         <h1 className="font-display font-bold uppercase leading-[0.92] text-[15vw] sm:text-[9vw] lg:text-[6.4vw]">
           <AnimatedWord word={WORD_1} startIndex={0} colorClass="text-paper" isVisible={showContent} />
           <br />
-          <AnimatedWord word={WORD_2} startIndex={WORD_1.length} colorClass="text-hazard" isVisible={showContent} />
+          <AnimatedWord word={WORD_2} startIndex={WORD_1.length} colorClass="text-hazard" 
+          isVisible={showContent} />
         </h1>
 
         <motion.p
@@ -169,7 +177,7 @@ export default function Hero() {
             Call {shop.phoneDisplay1}
           </motion.a>
 
-          <motion.a
+          {/* <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href={`tel:+${shop.phone}`}
@@ -178,7 +186,7 @@ export default function Hero() {
           >
             <Phone size={18} strokeWidth={2.5} />
             Call {shop.phoneDisplay}
-          </motion.a>
+          </motion.a> */}
         </motion.div>
       </motion.div>
 
